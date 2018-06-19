@@ -22,6 +22,9 @@ import requests
 import json
 import os
 import sys
+import time
+import random
+
 reload(sys)
 sys.setdefaultencoding( "utf-8" )
 
@@ -99,7 +102,7 @@ file_lowerrate = "M500"
 # 替代下载品质（128k Mp3）
 filetype = ".mp3"
 directory = str(cdlistid)
-guid = int(random.random() * 2147483647) * int(time.time() * 1000) % 10000000000
+guid = str(int(random.random() * 2147483647) * int(time.time() * 1000) % 10000000000)
 for n in range(0, len(mids)):
     resp2 = requests.get('https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg?&jsonpCallback=MusicJsonCallback&cid=205361747&songmid='+songmids[n]+'&filename=M500'+mids[n]+filetype+'&guid='+guid)
     #print 'https://y.qq.com/n/yqq/song/'+songmids[n]+'.html'
